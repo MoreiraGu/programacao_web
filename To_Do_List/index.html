@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Tarefas Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Minha Agenda Inteligente</h1>
+            <button id="theme-toggle">🌙 Dark Mode</button>
+        </div>
+        <p>Gerencie suas atividades diárias de forma simples e eficiente.</p>
+    </header>
+
+    <main class="container">
+        <section class="cadastro-section">
+            <h2>Nova Tarefa</h2>
+            <form id="task-form">
+                <div class="input-group">
+                    <label for="task-name">Nome da Tarefa</label>
+                    <input type="text" id="task-name" required placeholder="Ex: Estudar JavaScript">
+                </div>
+                
+                <div class="input-group">
+                    <label for="task-category">Categoria</label>
+                    <select id="task-category" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Trabalho">Trabalho</option>
+                        <option value="Estudos">Estudos</option>
+                        <option value="Pessoal">Pessoal</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="task-priority">Prioridade</label>
+                    <select id="task-priority" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Média">Média</option>
+                        <option value="Baixa">Baixa</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="task-date">Data Limite</label>
+                    <input type="date" id="task-date" required>
+                </div>
+
+                <button type="submit" id="btn-add">Adicionar Tarefa</button>
+            </form>
+        </section>
+
+        <section class="lista-section">
+            <div class="filtros-status">
+                <div class="filtros">
+                    <select id="filter-category">
+                        <option value="Todas">Todas as Categorias</option>
+                        <option value="Trabalho">Trabalho</option>
+                        <option value="Estudos">Estudos</option>
+                        <option value="Pessoal">Pessoal</option>
+                    </select>
+
+                    <select id="sort-tasks">
+                        <option value="default">Ordenar por...</option>
+                        <option value="priority">Prioridade (Maior p/ Menor)</option>
+                        <option value="date">Data Limite (Mais próxima)</option>
+                    </select>
+                </div>
+                
+                <div class="contadores">
+                    <span class="badge pendentes">Pendentes: <span id="count-pendentes">0</span></span>
+                    <span class="badge concluidas">Concluídas: <span id="count-concluidas">0</span></span>
+                </div>
+            </div>
+
+            <div id="task-list" class="task-grid">
+                </div>
+            
+            <div id="empty-message" class="empty-message hidden">
+                Nenhuma tarefa encontrada. 🎉
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
